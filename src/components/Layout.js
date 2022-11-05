@@ -55,7 +55,7 @@ const Layout = ({ api, children, changeApi }) => {
                                         Your API
                                     </Nav.Link>
                                     <Nav.Link as="li" className="d-lg-block d-md-none d-sm-none d-none">
-                                        <a href="https://github.com/mhlnu/tt_tmdb">Code</a>
+                                        <a href="https://github.com/mhlnu/tmdb">Code</a>
                                     </Nav.Link>
                                 </Nav>
                             </Nav>

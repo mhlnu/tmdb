@@ -4,6 +4,7 @@ import FilterDropdown from "./FilterDropdown";
 import { getData } from "./../api/data";
 import useData from "./../api/data";
 import Movie from "./Movie";
+import SearchResults from "./SearchResults";
 
 const baseImageUrl = "https://image.tmdb.org/t/p/original/";
 
@@ -15,6 +16,7 @@ const Movies = ({ session, api }) => {
     const [genre, setGenre] = useState({});
     const [year, setYear] = useState({});
     const [type, setType] = useState({ name: "TV shows", id: "tv" });
+    const [isSearch, setIsSearch] = useState(false);
     const [query, setQuery] = useState("");
     const [movieId, setMovieId] = useState(null);
     const genres = useData(type.id, "genres", {}, 1, null, api);
@@ -73,6 +75,18 @@ const Movies = ({ session, api }) => {
         );
     };
 
+    const handleKeyPress = key => {
+        if (key === "Enter") {
+            setIsSearch(true);
+            setMovieId(null);
+        }
+    };
+
+    const setMovieFromSearch = (type, id) => {
+        setType(type);
+        setMovieId(id);
+    };
+
     const renderFilterOptions = tags => {
         let createYearsList = () => {
             let today = new Date().getFullYear();
@@ -120,14 +134,20 @@ const Movies = ({ session, api }) => {
                 <h1>≧◔◡◔≦﻿</h1>
             </Col>
             <Col sm={6}>
-                {/* Might implement this at some point */}
-                {/* <FormControl value={query} className="searchBar" type="text" placeholder="Search..." onChange={e => setQuery(e.target.value)} /> */}
+                <FormControl
+                    value={query}
+                    className="searchBar"
+                    type="text"
+                    placeholder="Search for movies, TV shows, etc."
+                    onChange={e => setQuery(e.target.value)}
+                    onKeyPress={e => handleKeyPress(e.key)}
+                />
             </Col>
             <Col sm={12} className="tabbed">
                 {renderTabNav()}
             </Col>
             <Row className="mainContent">
-                {movieId === null && (
+                {movieId === null && !isSearch && (
                     <Col sm={12} lg={3} className="leftMenu">
                         <h3>Filters</h3>
                         <div className="filterOptions">{renderFilterOptions(tags)}</div>
@@ -136,6 +156,19 @@ const Movies = ({ session, api }) => {
                 )}
                 {movieId !== null ? (
                     <Movie session={session} api={api} type={type} id={movieId} goBack={() => setMovieId(null)} />
+                ) : isSearch && movieId === null ? (
+                    <SearchResults
+                        type={type}
+                        session={session}
+                        api={api}
+                        query={query}
+                        movieId={movieId}
+                        setMovie={setMovieFromSearch}
+                        goBack={() => {
+                            setIsSearch(false);
+                            setQuery("");
+                        }}
+                    />
                 ) : (
                     <Col sm={12} lg={9}>
                         <Row className="results">

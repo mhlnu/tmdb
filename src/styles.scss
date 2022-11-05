@@ -578,6 +578,9 @@ button[disabled] {
     margin: -1rem 1rem 2rem;
     padding: 0 0 .5rem 0;
     border-bottom: 1px solid #bbb;
+    &.search {
+        margin: -1rem 0rem 2rem;
+    }
     .backBtn {
         font-size: .8rem;
         text-transform: uppercase;
