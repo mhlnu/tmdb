@@ -44,7 +44,6 @@ export async function getData(type, action, { query, year, genre, id }, page, se
               body: JSON.stringify(query),
           });
     const data = await response.json();
-
     return data;
 }
 
