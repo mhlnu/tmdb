@@ -46,6 +46,7 @@ const Layout = ({ api, children, changeApi }) => {
                         <Col md={4} sm={4} xs={4} className="logoCol">
                             <a href="/" className="logo">
                                 <img src="logo.svg" srcSet="logo.svg" alt="tmdb" width="50" height="auto" />
+                                <h1>meowmovies</h1>
                             </a>
                         </Col>
                         <Col md={8} sm={4} xs={4}>

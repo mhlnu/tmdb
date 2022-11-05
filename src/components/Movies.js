@@ -172,7 +172,9 @@ const Movies = ({ session, api }) => {
                 ) : (
                     <Col sm={12} lg={9}>
                         <Row className="results">
-                            <h2>Uuuh, trending fishies! Yummy!</h2>
+                            <h2>
+                                Uuuh, trending &nbsp;&nbsp;{decodeURIComponent("><((((º>")} &nbsp;&nbsp; {decodeURIComponent("><((((º>")} ! Yummy!
+                            </h2>
                             {data.length < 1 ? (
                                 <p>No data yet... ¯\\_(ツ)_/¯"</p>
                             ) : (

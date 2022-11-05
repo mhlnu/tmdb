@@ -40,6 +40,13 @@ p {
     font-size: 1rem;
 }
 
+.logo {
+    h1 {
+        margin-left: 1rem;
+        padding-top: .3rem;
+    }
+}
+
 .topmenu {
     // I'm nesting them like this because I don't know the scope of the app
     // or how Bootstrap is used all across the rest of it
