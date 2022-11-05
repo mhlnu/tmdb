@@ -120,7 +120,8 @@ const Movies = ({ session, api }) => {
                 <h1>≧◔◡◔≦﻿</h1>
             </Col>
             <Col sm={6}>
-                <FormControl value={query} className="searchBar" type="text" placeholder="Search..." onChange={e => setQuery(e.target.value)} />
+                {/* Might implement this at some point */}
+                {/* <FormControl value={query} className="searchBar" type="text" placeholder="Search..." onChange={e => setQuery(e.target.value)} /> */}
             </Col>
             <Col sm={12} className="tabbed">
                 {renderTabNav()}

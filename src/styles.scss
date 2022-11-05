@@ -86,21 +86,13 @@ p {
         font-weight: bold;
         opacity: .9;
         cursor: pointer;
-        span {
-            border-radius: 4px;
-            color: #fff;
-            display: inline-block;
-            margin-left: 1rem;
-            padding: .3rem .5rem .2rem;
-            background-color: #199BB5;
+        &:hover {
+            color: #199BB5;
         }
-        &.mail {
-            span {
-                position: relative;
-                top: -.5rem;
-                right: -.5rem;
-                background-color: #F9615A;
-                border-radius: 50%;
+        a {
+            color: #fff;
+            &:hover {
+                color: #199BB5;
             }
         }
     }
