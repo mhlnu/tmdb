@@ -140,7 +140,7 @@ const Movies = ({ session, api }) => {
                     value={query}
                     className="searchBar"
                     type="text"
-                    placeholder="Search for movies, TV shows, etc."
+                    placeholder="Search for movies and TV shows"
                     onChange={e => setQuery(e.target.value)}
                     onKeyPress={e => handleKeyPress(e.key)}
                 />
