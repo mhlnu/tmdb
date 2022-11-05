@@ -5,7 +5,7 @@ import Movie from "./Movie";
 
 const baseImageUrl = "https://image.tmdb.org/t/p/original/";
 
-const SearchResults = ({ type, movieId, query, api, goBack, setMovie, session }) => {
+const SearchResults = ({ type, movieId, query, resultsTitle, api, goBack, setMovie, session }) => {
     const { loading, error, data } = useData("all", "search", { query }, 1, null, api);
 
     if (loading) {
@@ -31,7 +31,7 @@ const SearchResults = ({ type, movieId, query, api, goBack, setMovie, session })
             ) : (
                 <Col sm={12} lg={12}>
                     <Row className="results">
-                        <h2>Results for {query}:</h2>
+                        <h2>Results for {resultsTitle}:</h2>
                         {data.length < 1 ? (
                             <p>No results ¯\\_(ツ)_/¯"</p>
                         ) : (

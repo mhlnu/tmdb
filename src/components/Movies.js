@@ -18,6 +18,7 @@ const Movies = ({ session, api }) => {
     const [type, setType] = useState({ name: "TV shows", id: "tv" });
     const [isSearch, setIsSearch] = useState(false);
     const [query, setQuery] = useState("");
+    const [resultsTitle, setResultsTitle] = useState("");
     const [movieId, setMovieId] = useState(null);
     const genres = useData(type.id, "genres", {}, 1, null, api);
     const trending = useData(type.id, "trending", {}, 1, null, api);
@@ -77,6 +78,7 @@ const Movies = ({ session, api }) => {
 
     const handleKeyPress = key => {
         if (key === "Enter") {
+            setResultsTitle(query);
             setIsSearch(true);
             setMovieId(null);
         }
@@ -162,10 +164,12 @@ const Movies = ({ session, api }) => {
                         session={session}
                         api={api}
                         query={query}
+                        resultsTitle={resultsTitle}
                         movieId={movieId}
                         setMovie={setMovieFromSearch}
                         goBack={() => {
                             setIsSearch(false);
+                            setResultsTitle("");
                             setQuery("");
                         }}
                     />
